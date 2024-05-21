@@ -24,7 +24,7 @@ export class RegistrerComponent {
   register() {
     const user = { email: this.email, password: this.password, nombre: this.nombre, apellidos: this.apellidos, edad: this.edad};
     this.registerService.register(user).subscribe((data) => {
-      console.log(data);
+      this.registerService.setToken(data.token)
     })
   }
 }
