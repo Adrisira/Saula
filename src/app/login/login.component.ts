@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../_services/login.service';
 import { FormsModule } from "@angular/forms";
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export default class LoginComponent {
   email: string = "";
   password: string = "";
 
@@ -20,8 +20,7 @@ export class LoginComponent {
   login() {
     const user = { email: this.email, password: this.password };
     this.loginService.login(user).subscribe((data) => {
-      this.loginService.setToken(data.token)
-      console.log(this.loginService.getToken)
+      this.loginService.setToken(data)
     });
   }
 }

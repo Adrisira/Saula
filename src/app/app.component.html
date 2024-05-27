@@ -1,1 +1,11 @@
+<p>
+    <mat-toolbar color="accent">
+      <span>Saula</span>
+      <span class="barra"></span>
+      <button mat-button  color="primary" routerLink="login" *ngIf= "!sesisionIniciada()">Inicia Sesión</button>
+      <button mat-button color="primary" routerLink="register" *ngIf= "!sesisionIniciada()">Registrate!!</button>
+      //Esto pondra el login a false y me llevara a la pagina de muestra de nuevo
+      <button mat-button color="primary" routerLink="register" *ngIf= "sesisionIniciada()">Salir</button>
+    </mat-toolbar>
+  </p>
 <router-outlet />

@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { RegistrerService } from '../_services/registrer.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-registrer',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './registrer.component.html',
   styleUrl: './registrer.component.css'
 })
-export class RegistrerComponent {
+export default class RegistrerComponent{
+  constructor(public registerService: RegistrerService) {}
   email: string = "";
   password: string = "";
   confirmPassword: string = "";
@@ -19,12 +21,13 @@ export class RegistrerComponent {
   apellidos: string = "";
   edad: number = 0;
 
-  constructor(public registerService: RegistrerService) {}
+  
 
   register() {
     const user = { email: this.email, password: this.password, nombre: this.nombre, apellidos: this.apellidos, edad: this.edad};
     this.registerService.register(user).subscribe((data) => {
-      this.registerService.setToken(data.token)
+      this.registerService.setToken(data)
+      console.log(data)
     })
   }
 }
