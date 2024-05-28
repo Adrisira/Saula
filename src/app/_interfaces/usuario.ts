@@ -8,7 +8,3 @@ export interface Usuario {
     dirImg: string
 }
 
-export interface UsuarioLogin {
-    email : string,
-    password: string
-}

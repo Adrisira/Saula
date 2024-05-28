@@ -38,4 +38,8 @@ export class AppComponent {
     }
     return estadoSesion;
   }
+
+  cerrarSesion(){
+    this.loginService.setToken("")
+  }
 }
