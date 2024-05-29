@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LoginService } from '../_services/login.service';
+import { LoginService } from '../../_services/login.service';
 import { FormsModule } from "@angular/forms";
 import { RouterLink, RouterModule } from '@angular/router';
-import { Usuario } from '../_interfaces/usuario';
+import { Usuario } from '../../_interfaces/usuario';
 
 
 @Component({
@@ -28,8 +28,8 @@ export default class LoginComponent  implements Usuario {
     const user = { email: this.email, password: this.password };
     this.loginService.login(user).subscribe((data) => {
       this.loginService.setToken(data)
-      data.id = this.id
-      data.nombre = this.nombre
+      this.id = data.id
+      this.nombre = data.nombre
     });
   }
 }
