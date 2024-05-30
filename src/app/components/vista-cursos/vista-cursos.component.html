@@ -1,0 +1,13 @@
+<div *ngIf="cursos.length > 0">
+    <h2>Cursos del Usuario</h2>
+    <ul>
+      <li *ngFor="let curso of cursos">
+        <h3>{{ curso.curso.nombre }}</h3>
+        <p>{{ curso.curso.descripcion }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="cursos.length === 0">
+    <p>No hay cursos matriculados para este usuario.</p>
+  </div>
+  

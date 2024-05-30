@@ -30,7 +30,7 @@ export default class RegistrerComponent implements Usuario {
   register() {
     const user = { email: this.email, password: this.password, nombre: this.nombre, apellidos: this.apellidos, edad: this.edad};
     this.registerService.register(user).subscribe((data) => {
-      this.registerService.setToken(data)
+      this.registerService.setToken(data.id)
       this.id = data.id
       this.nombre = data.nombre
     })

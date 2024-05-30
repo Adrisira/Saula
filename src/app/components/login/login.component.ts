@@ -27,7 +27,7 @@ export default class LoginComponent  implements Usuario {
   login() {
     const user = { email: this.email, password: this.password };
     this.loginService.login(user).subscribe((data) => {
-      this.loginService.setToken(data)
+      this.loginService.setToken(data.id)
       this.id = data.id
       this.nombre = data.nombre
     });

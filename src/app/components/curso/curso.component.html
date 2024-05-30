@@ -1,1 +1,34 @@
-<p>curso works!</p>
+<div class="curso">
+    <form class="custom-form" method="post">
+      <h1>Crear curso</h1>
+      <input
+        type="nombre"
+        [(ngModel)]="nombre"
+        name="nombre"
+        placeholder="nombre"
+        required="required"
+      />
+      <input
+        type="codigo"
+        [(ngModel)]="codigo"
+        name="codigo"
+        placeholder="codigo"
+        required="required"
+      />
+      <input
+        type="descripcion"
+        [(ngModel)]="descripcion"
+        name="descripcion"
+        placeholder="descripcion"
+        required="required"
+      />
+      <input
+        type="imagen"
+        [(ngModel)]="imagen"
+        name="imagen"
+        placeholder="imagen"
+        required="required"
+      />
+      <button type="submit" (click)="todos()" routerLink="../home">Crear curso</button>
+    </form>
+  </div>
