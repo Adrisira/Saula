@@ -9,17 +9,30 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports: [NgIf, NgFor],
   templateUrl: './vista-cursos.component.html',
-  styleUrl: './vista-cursos.component.css'
+  styleUrl: './vista-cursos.component.css',
 })
-export class VistaCursosComponent implements OnInit{
-
+export class VistaCursosComponent implements OnInit {
   cursos: any[] = [];
-  constructor (private matriculaService: MatriculaService, private loginService : LoginService) {}
+  constructor(
+    private matriculaService: MatriculaService,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
-      this.matriculaService.getCursosUsuario(Number(this.loginService.getToken())).subscribe((data : any) => {
-        this.cursos = data
-      })
-  }
+    this.loginService.getToken
+      const tokenNumber = Number(this.loginService.getToken());
+      this.cargarCursos(tokenNumber)
+    }
 
+  private cargarCursos(token: number): void {
+    this.matriculaService.getCursosUsuario(token).subscribe(
+      (data: any) => {
+        this.cursos = data;
+        
+      },
+      (error) => {
+        console.error('Fallo al cargar los cursos', error);
+      }
+    );
+  }
 }

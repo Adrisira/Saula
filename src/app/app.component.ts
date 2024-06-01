@@ -41,5 +41,9 @@ export class AppComponent {
 
   cerrarSesion(){
     this.loginService.setToken("")
+    this.sesionIniciada = false
+  }
+  navigateToExternalUrl(): void {
+    window.location.href = 'http://localhost:4200';
   }
 }

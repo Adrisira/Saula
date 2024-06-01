@@ -5,8 +5,8 @@
     <span class="barra"></span>
     <button mat-button color="primary" routerLink="login" *ngIf="!sesisionIniciada()">Inicia Sesión</button>
     <button mat-button color="primary" routerLink="register" *ngIf="!sesisionIniciada()">Registrate!!</button>
-    <button mat-button color="primary" routerLink="main" *ngIf="sesisionIniciada()"
-      (click)="cerrarSesion()">Salir</button>
+    <button mat-button color="primary" *ngIf="sesisionIniciada()"
+      (click)="cerrarSesion()" (click)="navigateToExternalUrl()">Salir</button>
   </mat-toolbar>
 </p>
 <router-outlet />
