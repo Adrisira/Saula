@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ContenidoService } from '../../_services/contenido.service';
 import { LoginService } from '../../_services/login.service';
 import { NgIf } from '@angular/common';
@@ -11,17 +11,28 @@ import { VistaCursosComponent } from '../vista-cursos/vista-cursos.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, MatButtonModule, MatButtonModule, MatGridListModule, NgIf, NgFor, VistaCursosComponent],
+  imports: [
+    RouterLink,
+    MatButtonModule,
+    MatButtonModule,
+    MatGridListModule,
+    NgIf,
+    NgFor,
+    VistaCursosComponent,
+  ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
-export default class HomeComponent implements OnInit{
+export default class HomeComponent implements OnInit {
+  cursoIdSeleccionado: number = 0;
+  constructor(
+    public contenidoService: ContenidoService,
+    public loginService: LoginService
+  ) {}
 
-  constructor(public contenidoService : ContenidoService, public loginService : LoginService) {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-      
+  manejarCursoSeleccionado(id: number): void {
+    this.cursoIdSeleccionado = id;
   }
-
-
 }

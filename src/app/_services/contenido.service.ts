@@ -9,4 +9,11 @@ export class ContenidoService {
 
   constructor(private http: HttpClient) { }
   
+  crearContenido(contenido : any) : Observable <any> {
+    return this.http.post("http://localhost:8081/crearContenido", contenido)
+  }
+
+  getContenidoCurso(idCurso : any): Observable <any> {
+    return this.http.get(`http://localhost:8081/contenidoCurso/${idCurso}`)
+  }
 }

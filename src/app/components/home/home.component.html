@@ -1,4 +1,2 @@
 <button mat-button color="primary" routerLink="../curso">Crear curso</button>
-
-
-<app-vista-cursos></app-vista-cursos>
+<app-vista-cursos  (cursoSeleccionado)="manejarCursoSeleccionado($event)"></app-vista-cursos>

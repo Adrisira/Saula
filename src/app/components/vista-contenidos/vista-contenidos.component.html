@@ -1,0 +1,17 @@
+<button mat-button color="primary" (click)="navegarContenido()">Crear contenido</button>
+<div *ngIf="contenidos.length > 0">
+    <h2>Contenidos del Curso</h2>
+    <ul>
+      <li *ngFor="let contenido of contenidos">
+        <h3>{{ contenido.titulo }}</h3>
+        <p>{{ contenido.descripcion }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="contenidos.length === 0">
+    <p>No hay contenidos para este curso.</p>
+  </div>
+
+
+
+
