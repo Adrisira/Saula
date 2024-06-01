@@ -39,6 +39,6 @@ export class VistaContenidosComponent implements OnInit {
   }
 
   public navegarContenido(): void {
-    this.router.navigate(['../contenido'])
+    this.router.navigate(['../contenido', this.cursoId])
   }
 }

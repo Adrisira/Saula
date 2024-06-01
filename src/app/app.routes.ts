@@ -11,6 +11,6 @@ export const routes: Routes = [
   { path: 'register', component: RegistrerComponent },
   { path: 'home', component: HomeComponent },
   { path: 'curso', component: CursoComponent },
-  { path: 'contenido', component: ContenidoComponent },
+  { path: 'contenido/:id', component: ContenidoComponent },
   { path: 'vistaContenidos/:id', component: VistaContenidosComponent },
 ];

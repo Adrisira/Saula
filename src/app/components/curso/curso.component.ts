@@ -3,7 +3,7 @@ import { Curso } from '../../_interfaces/curso';
 import { CursoService } from '../../_services/curso.service';
 import { LoginService } from '../../_services/login.service';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { MatriculaService } from '../../_services/matricula.service';
 
 @Component({
@@ -23,7 +23,8 @@ export class CursoComponent implements Curso {
   constructor(
     private cursoService: CursoService,
     private matriculaService: MatriculaService,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {}
 
   async todos() {
@@ -56,5 +57,7 @@ export class CursoComponent implements Curso {
     };
     this.matriculaService.crearMatricula(contenido).subscribe((data) => {
     });
+
+    this.router.navigate(['../home'])
   }
 }

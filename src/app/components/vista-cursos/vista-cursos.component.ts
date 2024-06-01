@@ -27,7 +27,7 @@ export class VistaCursosComponent implements OnInit {
       this.cargarCursos(tokenNumber)
     }
 
-  private cargarCursos(token: number): void {
+  public cargarCursos(token: number): void {
     this.matriculaService.getCursosUsuario(token).subscribe(
       (data: any) => {
         this.cursos = data;

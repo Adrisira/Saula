@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -24,15 +24,23 @@ import { VistaCursosComponent } from '../vista-cursos/vista-cursos.component';
   styleUrl: './home.component.css',
 })
 export default class HomeComponent implements OnInit {
+  @ViewChild(VistaCursosComponent) vistaCursosComponent?: VistaCursosComponent;
   cursoIdSeleccionado: number = 0;
   constructor(
     public contenidoService: ContenidoService,
-    public loginService: LoginService
+    public loginService: LoginService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const tokenNumber = Number(this.loginService.getToken());
+  }
 
   manejarCursoSeleccionado(id: number): void {
     this.cursoIdSeleccionado = id;
   }
+
+  cargarCursos(token : number) : void {
+    this.vistaCursosComponent?.cargarCursos(token);
+  }
+
 }
