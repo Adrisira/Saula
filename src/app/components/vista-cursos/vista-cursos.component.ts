@@ -7,18 +7,21 @@ import { RouterLink , Router} from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { NgOptimizedImage } from '@angular/common';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-vista-cursos',
   standalone: true,
-  imports: [NgIf, NgFor, RouterLink, MatButtonModule, MatCardModule, NgOptimizedImage],
+  imports: [NgIf, NgFor, RouterLink, MatButtonModule, MatCardModule, NgOptimizedImage, MatDividerModule],
   templateUrl: './vista-cursos.component.html',
   styleUrl: './vista-cursos.component.css',
 })
 export class VistaCursosComponent implements OnInit {
   cursos: any[] = [];
   usuario: any[] = [];
+  idUsuario = Number(this.loginService.getToken());
   @Output() cursoSeleccionado = new EventEmitter<number>();
+  @Output() usuarioSeleccionado = new EventEmitter<number>();
   constructor(
     private matriculaService: MatriculaService,
     private loginService: LoginService,
@@ -26,11 +29,10 @@ export class VistaCursosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loginService.getToken
-      const tokenNumber = Number(this.loginService.getToken());
-      this.cargarCursos(tokenNumber)
-      this.cargarUsuario(tokenNumber)
+      this.cargarCursos(this.idUsuario)
+      this.cargarUsuario(this.idUsuario)
     }
+
 
   public cargarCursos(token: number): void {
     this.matriculaService.getCursosUsuario(token).subscribe(
@@ -53,5 +55,20 @@ export class VistaCursosComponent implements OnInit {
       this.usuario = data;
     })
   }
+
+  navigateVistaCurso(id: number) : void {
+    this.cursoSeleccionado.emit(id)
+    this.router.navigate(['../vistaCurso', id])
+  }
+
+
+  navigateCurso(): void {
+    this.router.navigate(['../curso'])
+  }
+
+  navigateMatricula(id: number) : void {
+    this.router.navigate(['../UnirMatricula'])
+  }
+
 
 }

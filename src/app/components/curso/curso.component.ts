@@ -34,9 +34,9 @@ export class CursoComponent implements Curso {
   crearCurso(): Promise<void> {
     const curso = {
       nombre: this.nombre,
-      codigo: this.codigo,
+      codigo: this.crearCodigoAleatorio(),
       descripcion: this.descripcion,
-      imagen: this.imagen,
+      imagen : this.asignarImagenAleatoria()
     };
     return new Promise((resolve, reject) => {
       this.cursoService.crearCurso(curso).subscribe((data) => {
@@ -55,9 +55,25 @@ export class CursoComponent implements Curso {
       idUsuario: Number(this.loginService.getToken()),
       idCurso: this.id,
     };
-    this.matriculaService.crearMatricula(contenido).subscribe((data) => {
-    });
+    this.matriculaService.crearMatricula(contenido).subscribe((data) => {});
 
-    this.router.navigate(['../vistaCursos'])
+    this.router.navigate(['../vistaCursos']);
+  }
+
+  crearCodigoAleatorio(): string {
+    const caracteres =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let codigo = '';
+    for (let i = 0; i < 6; i++) {
+      const indice = Math.floor(Math.random() * caracteres.length);
+      codigo += caracteres.charAt(indice);
+    }
+    return codigo;
+  }
+
+  asignarImagenAleatoria(): string {
+    let numeroImagen : number = Math.floor(Math.random() * 4) + 1
+    let imagen: string = '../../../assets/' +numeroImagen.toString() + '.jpg';
+    return imagen;
   }
 }

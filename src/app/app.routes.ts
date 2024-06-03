@@ -5,6 +5,8 @@ import { CursoComponent } from './components/curso/curso.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
 import { VistaContenidosComponent } from './components/vista-contenidos/vista-contenidos.component';
 import { VistaCursosComponent } from './components/vista-cursos/vista-cursos.component';
+import { VistaCursoComponent } from './components/vista-curso/vista-curso.component';
+import { MatriculaComponent } from './components/matricula/matricula.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,4 +15,6 @@ export const routes: Routes = [
   { path: 'curso', component: CursoComponent },
   { path: 'contenido/:id', component: ContenidoComponent },
   { path: 'vistaContenidos/:id', component: VistaContenidosComponent },
+  {path : 'vistaCurso/:id', component : VistaCursoComponent},
+  {path : 'UnirMatricula', component : MatriculaComponent}
 ];

@@ -1,0 +1,13 @@
+<div class="curso">
+    <form class="custom-form" method="get">
+      <h1>Unirme a un curso</h1>
+      <input
+        type="codigo"
+        [(ngModel)]="codigo"
+        name="codigo"
+        placeholder="codigo"
+        required="required"
+      />
+      <button type="submit" (click)="getCurso()">Unirme al curso</button>
+    </form>
+  </div>
