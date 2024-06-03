@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { RegistrerService } from '../../_services/registrer.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { Usuario } from '../../_interfaces/usuario';
 
 
@@ -23,7 +23,7 @@ export default class RegistrerComponent implements Usuario {
   edad: number = 0
   dirImg: string = ""
 
-  constructor(public registerService: RegistrerService) {}
+  constructor(public registerService: RegistrerService, private router: Router) {}
 
   
 
@@ -33,6 +33,7 @@ export default class RegistrerComponent implements Usuario {
       this.registerService.setToken(data.id)
       this.id = data.id
       this.nombre = data.nombre
+      this.router.navigate(['../vistaCursos'])
     })
   }
 }

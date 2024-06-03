@@ -24,5 +24,9 @@ export class LoginService {
     return this.cookies.get("token")
   }
 
+  getUsuario(id : any): Observable<any>{
+    return this.http.get(`http://localhost:8081/usuario/${id}`, id)
+  }
+
 
 }

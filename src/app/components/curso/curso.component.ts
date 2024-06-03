@@ -58,6 +58,6 @@ export class CursoComponent implements Curso {
     this.matriculaService.crearMatricula(contenido).subscribe((data) => {
     });
 
-    this.router.navigate(['../home'])
+    this.router.navigate(['../vistaCursos'])
   }
 }

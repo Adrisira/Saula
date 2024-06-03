@@ -4,12 +4,14 @@ import { NgFor } from '@angular/common';
 import { ContenidoService } from '../../_services/contenido.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 import { RouterLink , Router} from '@angular/router';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-vista-contenidos',
   standalone: true,
-  imports: [NgIf, NgFor, MatButtonModule, RouterLink],
+  imports: [NgIf, NgFor, MatButtonModule, RouterLink, MatCardModule, MatGridListModule],
   templateUrl: './vista-contenidos.component.html',
   styleUrl: './vista-contenidos.component.css',
 })

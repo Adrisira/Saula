@@ -29,7 +29,7 @@ export default class LoginComponent implements Usuario {
         this.loginService.setToken(data.id);
         this.id = data.id;
         this.nombre = data.nombre;
-        this.router.navigate(['../home'])
+        this.router.navigate(['../vistaCursos'])
       },
       (error) => {
         console.error('Nos has podido inicar sesion', error);

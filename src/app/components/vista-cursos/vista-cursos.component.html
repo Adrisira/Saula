@@ -1,13 +1,27 @@
 <div *ngIf="cursos.length > 0">
-    <h2>Cursos del Usuario</h2>
-    <ul>
-      <li *ngFor="let curso of cursos">
-        <h3 (click)="seleccionarCurso(curso.curso.id)">{{ curso.curso.nombre }}</h3>
-        <p>{{ curso.curso.descripcion }}</p>
-      </li>
-    </ul>
+  <h2>Cursos Disponibles</h2>
+  <div class="cards-container">
+    <div *ngFor="let curso of cursos" class="card-wrapper">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ curso.curso.nombre }}</mat-card-title>
+          <mat-card-subtitle> Código del curso: {{ curso.curso.codigo }}</mat-card-subtitle>
+        </mat-card-header> 
+        <img mat-card-image [src]= "curso.curso.imagen" >
+        <mat-card-content>
+          <p *ngIf="curso.curso.descripcion">
+            {{ curso.curso.descripcion }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary">Editar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
-  <div *ngIf="cursos.length === 0">
-    <p>No hay cursos matriculados para este usuario.</p>
-  </div>
+</div>
+<div *ngIf="cursos.length === 0" class="no-content">
+  <p>No hay cursos disponibles.</p>
+</div>
   

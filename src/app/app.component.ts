@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -24,7 +24,8 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
   constructor(
     public loginService: LoginService,
-    public registerService: RegistrerService
+    public registerService: RegistrerService,
+    private router: Router
   ) {}
   sesionIniciada: Boolean = false;
 
@@ -45,5 +46,17 @@ export class AppComponent {
   }
   navigateToExternalUrl(): void {
     window.location.href = 'http://localhost:4200';
+  }
+
+  navigatePaginaPrincipal() : void {
+    this.router.navigate(['../vistaCursos'])
+  }
+
+  navigateLogin () : void {
+    this.router.navigate(['../login'])
+  }
+
+  navigateRegister() : void {
+    this.router.navigate(['../register'])
   }
 }

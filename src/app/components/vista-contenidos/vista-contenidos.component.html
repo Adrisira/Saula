@@ -1,17 +1,27 @@
-<button mat-button color="primary" (click)="navegarContenido()">Crear contenido</button>
 <div *ngIf="contenidos.length > 0">
-    <h2>Contenidos del Curso</h2>
-    <ul>
-      <li *ngFor="let contenido of contenidos">
-        <h3>{{ contenido.titulo }}</h3>
-        <p>{{ contenido.descripcion }}</p>
-      </li>
-    </ul>
+  <h2>Contenidos del Curso</h2>
+  <div class="cards-container">
+    <div *ngFor="let contenido of contenidos" class="card-wrapper">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ contenido.titulo }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="contenido.descripcion">
+            <p>{{ contenido.descripcion }}</p>
+          </div>
+          <div *ngIf="contenido.enlace">
+            <p><a [href]="contenido.enlace" target="_blank">Enlace</a></p>
+          </div>
+          <div *ngIf="contenido.video">
+            <p><a [href]="contenido.video" target="_blank">Ver Video</a></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-  <div *ngIf="contenidos.length === 0">
-    <p>No hay contenidos para este curso.</p>
-  </div>
-
-
-
+</div>
+<div *ngIf="contenidos.length === 0" class="no-content">
+  <p>No hay contenidos para este curso.</p>
+</div>
 
