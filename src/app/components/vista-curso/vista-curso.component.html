@@ -1,1 +1,20 @@
-<p>vista-curso works!</p>
+<div class="curso">
+    <form class="custom-form" method="put">
+      <h1>Unirme a un curso</h1>
+      <input
+        type="nombre"
+        [(ngModel)]="nombre"
+        name="nombre"
+        placeholder="nombre"
+        required="required"
+      />
+      <input
+        type="descripcion"
+        [(ngModel)]="descripcion"
+        name="descripcion"
+        placeholder="descripcion"
+        required="required"
+      />
+      <button type="submit" (click)=" todos()">Modificar curso</button>
+    </form>
+  </div>

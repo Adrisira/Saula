@@ -8,21 +8,31 @@
   <h2>Cursos Disponibles</h2>
   <div class="cards-container">
     <div *ngFor="let curso of cursos" class="card-wrapper">
-      <mat-card class="example-card" (click)="seleccionarCurso(curso.curso.id)">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ curso.curso.nombre }}</mat-card-title>
-          <mat-card-subtitle> Código del curso: {{ curso.curso.codigo }}</mat-card-subtitle>
-        </mat-card-header> 
-        <img mat-card-image [src]= "curso.curso.imagen" >
-        <mat-card-content>
-          <p *ngIf="curso.curso.descripcion">
-            {{ curso.curso.descripcion }}
-          </p>
-          <mat-divider></mat-divider>
-        </mat-card-content>
+      <mat-card class="example-card">
+          <mat-card-header (click)="seleccionarCurso(curso.curso.id)">
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ curso.curso.nombre }}</mat-card-title>
+            <mat-card-subtitle> Código del curso: {{ curso.curso.codigo }}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image [src]="curso.curso.imagen" (click)="seleccionarCurso(curso.curso.id)">
+          <mat-card-content (click)="seleccionarCurso(curso.curso.id)">
+            <p *ngIf="curso.curso.descripcion">
+              {{ curso.curso.descripcion }}
+            </p>
+            <mat-divider></mat-divider>
+          </mat-card-content>
         <mat-card-actions *ngIf="curso.rol">
           <button mat-button color="primary" (click)="navigateVistaCurso(curso.curso.id)">Editar</button>
+          <div class="example-button-row">
+            <div class="example-flex-container">
+              <div class="example-button-container">
+                <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon"
+                  (click)="deleteCurso(curso.curso.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -31,4 +41,3 @@
 <div *ngIf="cursos.length === 0" class="no-content">
   <p>No hay cursos disponibles.</p>
 </div>
-  

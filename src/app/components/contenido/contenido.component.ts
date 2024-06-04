@@ -46,13 +46,10 @@ export class ContenidoComponent implements Contenido, OnInit {
     console.log(contenido)
 
     this.contenidoService.crearContenido(contenido).subscribe((data) => {
-
+      this.router.navigate(['../vistaContenidos', this.idCurso])
     })
   }
 
-  public navegarContenido(): void {
-    this.router.navigate(['../vistaContenidos', this.idCurso])
-  }
 
   
 }

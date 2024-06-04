@@ -15,4 +15,8 @@ export class MatriculaService {
   getCursosUsuario(idUsuario: any): Observable<any>{
     return this.http.get(`http://localhost:8081/matriculaUsuario/${idUsuario}`)
   }
+
+  deteleMatricula(id : any): Observable<any>{
+    return this.http.delete(`http://localhost:8081/deleteMatricula/${id}`)
+  }
 }
