@@ -1,5 +1,5 @@
 <div class="button-container">
-  <button mat-button color="primary" (click)="navegarContenido()">Crear curso</button>
+  <button mat-button color="primary" *ngIf="comprobarRol(cursoId)" (click)="navegarContenido()">Crear contenido</button>
 </div>
 
 <div *ngIf="contenidos.length > 0">
@@ -20,7 +20,22 @@
           <div *ngIf="contenido.video">
             <p><a [href]="contenido.video" target="_blank">Ver Video</a></p>
           </div>
+          <mat-divider></mat-divider>
         </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" *ngIf="comprobarRol(cursoId)"
+            (click)=" navigateVitaContenido(contenido.id)">Editar</button>
+          <div class="example-button-row">
+            <div class="example-flex-container">
+              <div class="example-button-container">
+                <button mat-mini-fab color="warn" *ngIf="comprobarRol(cursoId)"
+                  (click)="eliminarContenido(contenido.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-card-actions>
       </mat-card>
     </div>
   </div>
@@ -28,4 +43,3 @@
 <div *ngIf="contenidos.length === 0" class="no-content">
   <p>No hay contenidos para este curso.</p>
 </div>
-

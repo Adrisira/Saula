@@ -16,4 +16,8 @@ export class ContenidoService {
   getContenidoCurso(idCurso : any): Observable <any> {
     return this.http.get(`http://localhost:8081/contenidoCurso/${idCurso}`)
   }
+
+  deleteContenido(id : any): Observable<any>{
+    return this.http.delete(`http://localhost:8081/deleteContenido/${id}`)
+  }
 }
