@@ -4,7 +4,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginService } from './_services/login.service';
-import { RegistrerService } from './_services/registrer.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -24,7 +23,6 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
   constructor(
     public loginService: LoginService,
-    public registerService: RegistrerService,
     private router: Router
   ) {}
   sesionIniciada: Boolean = false;
@@ -32,8 +30,7 @@ export class AppComponent {
   sesisionIniciada(): Boolean {
     var estadoSesion: Boolean = this.sesionIniciada;
     if (
-      this.loginService.getToken().length > 0 ||
-      this.registerService.getToken().length > 0
+      this.loginService.getToken().length > 0 
     ) {
       estadoSesion = true;
     }
@@ -49,7 +46,7 @@ export class AppComponent {
   }
 
   navigatePaginaPrincipal() : void {
-    this.router.navigate(['../vistaCursos'])
+    this.router.navigate(['../vistaCursos', Number(this.loginService.getToken().length)])
   }
 
   navigateLogin () : void {

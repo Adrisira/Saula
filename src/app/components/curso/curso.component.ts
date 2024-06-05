@@ -29,7 +29,8 @@ export class CursoComponent implements Curso {
 
   async todos() {
     await this.crearCurso();
-    this.crearMatricula();
+    await this.crearMatricula();
+    this.navigateVistaCursos()
   }
   crearCurso(): Promise<void> {
     const curso = {
@@ -49,7 +50,7 @@ export class CursoComponent implements Curso {
       });
     });
   }
-  crearMatricula() {
+  async crearMatricula() {
     const contenido = {
       rol: true,
       idUsuario: Number(this.loginService.getToken()),
@@ -57,7 +58,7 @@ export class CursoComponent implements Curso {
     };
     this.matriculaService.crearMatricula(contenido).subscribe((data) => {});
 
-    this.router.navigate(['../vistaCursos']);
+    
   }
 
   crearCodigoAleatorio(): string {
@@ -75,5 +76,9 @@ export class CursoComponent implements Curso {
     let numeroImagen : number = Math.floor(Math.random() * 4) + 1
     let imagen: string = '../../../assets/' +numeroImagen.toString() + '.jpg';
     return imagen;
+  }
+
+  navigateVistaCursos(){
+    this.router.navigate(['../vistaCursos', Number(this.loginService.getToken())]);
   }
 }

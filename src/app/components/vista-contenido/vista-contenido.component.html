@@ -1,1 +1,41 @@
-<p>vista-contenido works!</p>
+<div class="contenido">
+    <form class="custom-form" method="put">
+      <h1>Crear Contenido</h1>
+      <input
+        type="titulo"
+        [(ngModel)]="titulo"
+        name="titulo"
+        placeholder="titulo"
+        required="required"
+      />
+      <input
+        type="enlace"
+        [(ngModel)]="enlace"
+        name="enlace"
+        placeholder="enlace"
+        required="required"
+      />
+      <input
+        type="video"
+        [(ngModel)]="video"
+        name="video"
+        placeholder="video"
+        required="required"
+      />
+      <input
+        type="descripcion"
+        [(ngModel)]="descripcion"
+        name="descripcion"
+        placeholder="descripcion"
+        required="required"
+      />
+      <input
+        type="orden"
+        [(ngModel)]="orden"
+        name="orden"
+        placeholder="orden"
+        required="required"
+      />
+      <button type="submit" (click)="modifyContenido()">Modificar contenido</button>
+    </form>
+  </div>

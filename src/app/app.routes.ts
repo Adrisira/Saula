@@ -12,7 +12,7 @@ import { VistaContenidoComponent } from './components/vista-contenido/vista-cont
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrerComponent },
-  {path : 'vistaCursos', component : VistaCursosComponent},
+  {path : 'vistaCursos/:id', component : VistaCursosComponent},
   { path: 'curso', component: CursoComponent },
   { path: 'contenido/:id', component: ContenidoComponent },
   { path: 'vistaContenidos/:id', component: VistaContenidosComponent },

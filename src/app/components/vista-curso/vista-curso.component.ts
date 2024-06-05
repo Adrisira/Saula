@@ -24,7 +24,6 @@ export class VistaCursoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private matriculaService: MatriculaService,
     private loginService: LoginService,
     private CursoService : CursoService
   ) {}
@@ -37,9 +36,9 @@ export class VistaCursoComponent implements OnInit {
   }
 
   async todos(){
-    
     await this.modificaCurso()
-    this.router.navigate(['../vistaCursos'])
+    const id = Number(this.loginService.getToken())
+    this.router.navigate(['../vistaCursos', id])
   }
 
   async obtieneCurso(id : number){

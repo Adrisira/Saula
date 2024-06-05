@@ -15,13 +15,16 @@ export class LoginService {
   login(usuario : any): Observable<any> {
     return this.http.post("http://localhost:8081/login", usuario);
   }
+  register(usuario: any): Observable<any> {
+    return this.http.post("http://localhost:8081/registrer", usuario);
+  }
   setToken(token: string){
-    this.cookies.set("token", token);
+    this.cookies.set("usuario", token);
    
   }
 
    getToken(){
-    return this.cookies.get("token")
+    return this.cookies.get("usuario")
   }
 
   getUsuario(id : any): Observable<any>{

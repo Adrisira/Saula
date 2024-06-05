@@ -43,9 +43,10 @@ export class VistaContenidosComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
+      
       this.cursoId = +params['id'];
+      this.cargarDatos();
     });
-    this.cargaContenidos();
   }
 
   cargarDatos(): void {
@@ -98,5 +99,30 @@ export class VistaContenidosComponent implements OnInit {
 
   navigateVitaContenido(id: number) {
     this.router.navigate(['../vistaContenido', id]);
+  }
+
+  navigateVistaCursoss(){
+    this.router.navigate(['../vistaCursos'])
+  }
+  async todos(){
+    await this.salirCurso()
+    this.navigateVistaCursoss()
+  }
+
+  async salirCurso(){
+    const idUsuario = Number(this.loginService.getToken());
+    let matriculasCursos : any[];
+    this.matriculaService.getCursos(this.cursoId).subscribe(
+      (data) => {
+        matriculasCursos = data;
+        for (let matricula of matriculasCursos){
+          if(matricula.usuario.id === idUsuario){
+            this.matriculaService.deteleMatricula(matricula.id).subscribe((data2) => {
+  
+            })
+          }
+        }
+        
+      })
   }
 }

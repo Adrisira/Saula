@@ -11,9 +11,14 @@ export class MatriculaService {
   crearMatricula(matricula: any): Observable <any>{
     return this.http.post("http://localhost:8081/crearMatricula", matricula)
   }
+  
 
   getCursosUsuario(idUsuario: any): Observable<any>{
     return this.http.get(`http://localhost:8081/matriculaUsuario/${idUsuario}`)
+  }
+
+  getCursos(idCurso: any): Observable<any>{
+    return this.http.get(`http://localhost:8081/matriculaCurso/${idCurso}`)
   }
 
   deteleMatricula(id : any): Observable<any>{
