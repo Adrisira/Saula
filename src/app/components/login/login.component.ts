@@ -3,6 +3,7 @@ import { LoginService } from '../../_services/login.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterModule, Router } from '@angular/router';
 import { Usuario } from '../../_interfaces/usuario';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,11 @@ export default class LoginComponent implements Usuario {
   dirImg: string = '';
   @Output() usuario = new EventEmitter<number>();
 
-  constructor(public loginService: LoginService, private router: Router) {}
+  constructor(
+    public loginService: LoginService,
+    private router: Router,
+    private matSancBar: MatSnackBar
+  ) {}
   async login() {
     const user = { email: this.email, password: this.password };
 
@@ -30,14 +35,23 @@ export default class LoginComponent implements Usuario {
         this.id = data.id;
         this.nombre = data.nombre;
         this.loginService.setToken(data.id);
-        this.navigateVistaCurso()
-      })
-      
+        this.navigateVistaCurso();
+      },
+      (error) => {
+        this.matSancBar.open(
+          'Prueba a introducir los datos de nuevo',
+          'Cerrar'
+        );
+      }
+    );
   }
 
-
-   navigateVistaCurso(){
+  navigateVistaCurso() {
     this.usuario.emit(this.id);
-      this.router.navigate(['../vistaCursos', this.id]);
+    this.router.navigate(['../vistaCursos', this.id]);
+  }
+
+  navigateRegister(){
+    this.router.navigate(['../register'])
   }
 }

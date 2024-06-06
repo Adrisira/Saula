@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 import { Usuario } from '../../_interfaces/usuario';
 import { LoginService } from '../../_services/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registrer',
@@ -18,11 +19,11 @@ export default class RegistrerComponent implements Usuario {
   confirmPassword: string = '';
   nombre: string = '';
   apellidos: string = '';
-  edad: number = 0;
+  edad!: number;
   dirImg: string = '';
   @Output() usuario = new EventEmitter<number>();
 
-  constructor(public loginService: LoginService, private router: Router) {}
+  constructor(public loginService: LoginService, private router: Router, private matSancBar: MatSnackBar) {}
 
   register() {
     const user = {
@@ -42,9 +43,41 @@ export default class RegistrerComponent implements Usuario {
     
   }
 
+  comprobarPassword(){
+    if(this.password === this.confirmPassword){
+      this.register()
+    } else {
+      this.matSancBar.open(
+        'Las contraseñas no coinciden',
+        'Cerrar'
+      );
+    }
+  }
+
+  comprobarEmail(){
+    const email = {
+      email : this.email
+    }
+    this.loginService.comprobarEmail(email).subscribe((data) => {
+      console.log(data)
+      if(data === false){
+        this.comprobarPassword()
+      } else {
+        this.matSancBar.open(
+          'Este Email ya existe',
+          'Cerrar'
+        );
+      }
+    })
+  }
+
 
   navigateVistaCurso(){
     this.usuario.emit(this.id);
       this.router.navigate(['../vistaCursos', this.id]);
+  }
+
+  navigateLogin(){
+    this.router.navigate(['../login'])
   }
 }

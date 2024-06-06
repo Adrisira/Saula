@@ -1,6 +1,6 @@
 <div class="button-container">
-  <button mat-button color="primary" (click)="navigateCurso()">Crear curso</button>
-  <button mat-button color="primary" (click)="navigateMatricula()">Unirme a un curso</button>
+  <button mat-button mat-flat-button color="primary" (click)="navigateCurso()">Crear curso</button>
+  <button mat-button mat-flat-button color="primary" (click)="navigateMatricula()">Unirme a un curso</button>
 </div>
 
 
@@ -9,7 +9,7 @@
   <div class="cards-container">
     <div *ngFor="let curso of cursos" class="card-wrapper">
       <mat-card class="example-card">
-          <mat-card-header (click)="seleccionarCurso(curso.curso.id)">
+          <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
             <mat-card-title>{{ curso.curso.nombre }}</mat-card-title>
             <mat-card-subtitle> Código del curso: {{ curso.curso.codigo }}</mat-card-subtitle>

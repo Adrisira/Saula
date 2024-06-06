@@ -1,6 +1,6 @@
 <div class="button-container">
-  <button mat-button color="primary" *ngIf="comprobarRol(cursoId)" (click)="navegarContenido()">Crear contenido</button>
-  <button mat-button color="warn" *ngIf="comprobarRol(cursoId)===false" (click)="todos()" >Salirme del curso</button>
+  <button mat-button mat-flat-button color="primary" *ngIf="comprobarRol(cursoId)" (click)="navegarContenido()">Crear contenido</button>
+  <button mat-button mat-flat-button color="warn" *ngIf="comprobarRol(cursoId)===false" (click)="todos()" >Salirme del curso</button>
 </div>
 
 <div *ngIf="contenidos.length > 0">

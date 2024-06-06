@@ -1,48 +1,24 @@
-<div class="register">
-    <form class="custom-form" method="post">
-      <h1>Register</h1>
-      <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="confirmPassword"
-        name="password"
-        placeholder="Repeat the password"
-        required="required"
-      />
-      <input
-        type="nombre"
-        [(ngModel)]="nombre"
-        name="nombre"
-        placeholder="Nombre"
-        required="required"
-      />
-      <input
-        type="apellidos"
-        [(ngModel)]="apellidos"
-        name="apellidos"
-        placeholder="Apellidos"
-        required="required"
-      />
-      <input
-        type="edad"
-        [(ngModel)]="edad"
-        name="edad"
-        placeholder="Edad"
-        required="required"
-      />
-      <button type="submit" (click)="register()">Register</button>
-    </form>
+<div class="containere">
+  <div class="container">
+    <div class="illustration">
+      <img src="../../../assets/imagenLogin.jpg" alt="Illustration">
+    </div>
+    <div class="form-section">
+      <h1>Inicia sesión</h1>
+      <p>Podrás crear y unirte a cursos desde el primer momento!!</p>
+      <form>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" />
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required="required" />
+        <input type="password" [(ngModel)]="confirmPassword" name="password" placeholder="Repeat the password"
+          required="required" />
+        <input type="nombre" [(ngModel)]="nombre" name="nombre" placeholder="Nombre" required="required" />
+        <input type="apellidos" [(ngModel)]="apellidos" name="apellidos" placeholder="Apellidos" required="required" />
+        <input type="edad" [(ngModel)]="edad" name="edad" placeholder="Introduce tu edad" required="required" />
+        <button type="submit" (click)="comprobarEmail()">Register</button>
+      </form>
+      <div class="login-link">
+        ¿Ya tienes cuenta? <a (click)="navigateLogin()">Inicia Sesión!!</a>
+      </div>
+    </div>
   </div>
+</div>

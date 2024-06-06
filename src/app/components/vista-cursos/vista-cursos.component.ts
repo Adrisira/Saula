@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CursoService } from '../../_services/curso.service';
 import { firstValueFrom } from 'rxjs';
 import { waitForAsync } from '@angular/core/testing';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vista-cursos',
@@ -25,6 +26,7 @@ import { waitForAsync } from '@angular/core/testing';
     NgOptimizedImage,
     MatDividerModule,
     MatIconModule,
+    MatDialogModule
   ],
   templateUrl: './vista-cursos.component.html',
   styleUrl: './vista-cursos.component.css',
@@ -38,7 +40,8 @@ export class VistaCursosComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private cursoService: CursoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -103,4 +106,11 @@ export class VistaCursosComponent implements OnInit {
   async eliminarCurso(idCurso : number): Promise<void>{
     const data = await firstValueFrom(this.cursoService.deleteCurso(idCurso));
   }
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(['./codigo-dialog.html']);
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 }
