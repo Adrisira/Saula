@@ -1,11 +1,11 @@
 <p>
-  <mat-toolbar color="primary">
-    <span *ngIf="sesisionIniciada()" (click) = "navigatePaginaPrincipal()" style="cursor: hand">Saula</span>
-    <span *ngIf="!sesisionIniciada()">Saula</span>
+  <mat-toolbar>
+    <span class="suala" *ngIf="sesisionIniciada()" (click) = "navigatePaginaPrincipal()">Saula</span>
+    <span class="suala" *ngIf="!sesisionIniciada()">Saula</span>
     <span class="barra"></span>
-    <button mat-button color="primary" (click) = "navigateLogin()" *ngIf="!sesisionIniciada()">Inicia Sesión</button>
-    <button mat-button color="primary"  (click) = "navigateRegister()" *ngIf="!sesisionIniciada()">Registrate!!</button>
-    <button mat-button color="primary" *ngIf="sesisionIniciada()"
+    <button class="login" mat-raised-button (click) = "navigateLogin()" *ngIf="!sesisionIniciada()">Inicia Sesión</button>
+    <button class="registrate" mat-button (click) = "navigateRegister()" *ngIf="!sesisionIniciada()">Registrate!!</button>
+    <button mat-button *ngIf="sesisionIniciada()"
       (click)="cerrarSesion()" (click)="navigateToExternalUrl()">Salir</button>
   </mat-toolbar>
 </p>

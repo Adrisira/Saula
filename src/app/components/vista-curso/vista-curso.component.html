@@ -1,20 +1,16 @@
-<div class="curso">
-    <form class="custom-form" method="put">
-      <h1>Unirme a un curso</h1>
-      <input
-        type="nombre"
-        [(ngModel)]="nombre"
-        name="nombre"
-        placeholder="nombre"
-        required="required"
-      />
-      <input
-        type="descripcion"
-        [(ngModel)]="descripcion"
-        name="descripcion"
-        placeholder="descripcion"
-        required="required"
-      />
-      <button type="submit" (click)=" todos()">Modificar curso</button>
-    </form>
+<div class="containere">
+  <div class="container">
+    <div class="illustration">
+      <img src="../../../assets/formulario.jpg" alt="Illustration">
+    </div>
+    <div class="form-section">
+      <h1>Modificar Curso</h1>
+      <form method="put">
+        <input type="nombre" [(ngModel)]="nombre" name="nombre" placeholder="nombre" required="required" />
+        <input type="descripcion" [(ngModel)]="descripcion" name="descripcion" placeholder="descripcion"
+          required="required" />
+        <button type="submit" (click)=" todos()">Modificar curso</button>
+      </form>
+    </div>
   </div>
+</div>

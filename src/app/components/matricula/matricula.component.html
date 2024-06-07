@@ -1,13 +1,14 @@
-<div class="curso">
-    <form class="custom-form" method="get">
+<div class="containere">
+  <div class="container">
+    <div class="illustration">
+      <img src="../../../assets/formulario.jpg" alt="Illustration">
+    </div>
+    <div class="form-section">
       <h1>Unirme a un curso</h1>
-      <input
-        type="codigo"
-        [(ngModel)]="codigo"
-        name="codigo"
-        placeholder="codigo"
-        required="required"
-      />
-      <button type="submit" (click)="getCurso()">Unirme al curso</button>
-    </form>
+      <form method="post">
+        <input type="codigo" [(ngModel)]="codigo" name="codigo" placeholder="codigo" required="required" />
+        <button type="submit" (click)="getCurso()">Unirme al curso</button>
+      </form>
+    </div>
   </div>
+</div>

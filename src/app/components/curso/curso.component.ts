@@ -5,11 +5,13 @@ import { LoginService } from '../../_services/login.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 import { MatriculaService } from '../../_services/matricula.service';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-curso',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, MatInputModule, MatFormFieldModule],
   templateUrl: './curso.component.html',
   styleUrl: './curso.component.css',
 })

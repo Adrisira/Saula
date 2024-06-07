@@ -1,9 +1,22 @@
-button {
-    background-color: white;
-    margin : 5px;
-}
-
 .barra {
     flex: 1 1 auto;
+}
+mat-toolbar {
+    background-color: #fffff9;
+}
+
+.registrate {
+    color: white;
+    margin-left: 5px;
+    background-color: #88c9bf;
+}
+
+.saula {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login {
+    color: #88c9bf;
 }
 
