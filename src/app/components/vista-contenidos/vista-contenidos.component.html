@@ -1,30 +1,37 @@
 <div class="button-container">
-  <button mat-button mat-flat-button color="primary" *ngIf="comprobarRol(cursoId)" (click)="navegarContenido()">Crear contenido</button>
-  <button mat-button mat-flat-button color="warn" *ngIf="comprobarRol(cursoId)===false" (click)="todos()" >Salirme del curso</button>
+  <button mat-button class="botonesAccion" *ngIf="comprobarRol(cursoId)" (click)="navegarContenido()">Crear
+    contenido</button>
+  <button mat-button class="botonesAccion" *ngIf="comprobarRol(cursoId)===false" (click)="todos()">Salirme del
+    curso</button>
 </div>
 
 <div *ngIf="contenidos.length > 0">
   <h2>Contenidos del Curso</h2>
   <div class="cards-container">
     <div *ngFor="let contenido of contenidos" class="card-wrapper">
-      <mat-card >
-        <div (click)="navigateVitaContenido(contenido.id)">
-        <mat-card-header>
-          <mat-card-title>{{ contenido.titulo }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <div *ngIf="contenido.descripcion">
-            <p>{{ contenido.descripcion }}</p>
-          </div>
-          <div *ngIf="contenido.enlace">
-            <p><a [href]="contenido.enlace" target="_blank">Enlace</a></p>
-          </div>
-          <div *ngIf="contenido.video">
-            <p><a [href]="contenido.video" target="_blank">Ver Video</a></p>
-          </div>
-          <mat-divider></mat-divider>
-        </mat-card-content>
-      </div>
+      <mat-card>
+        <div>
+          <mat-card-header>
+            <mat-card-title>{{ contenido.titulo }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngIf="contenido.descripcion">
+              <p>{{ contenido.descripcion }}</p>
+            </div>
+            <div *ngIf="contenido.enlace">
+              <p><a [href]="contenido.enlace" target="_blank">Enlace</a></p>
+            </div>
+            <div *ngIf="contenido.video">
+              <p>
+                <iframe width="560" height="315" [src]="getVideoIframe(contenido.video)" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+              </p>
+
+            </div>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+        </div>
         <mat-card-actions>
           <button mat-button color="primary" *ngIf="comprobarRol(cursoId)"
             (click)=" navigateVitaContenido(contenido.id)">Editar</button>

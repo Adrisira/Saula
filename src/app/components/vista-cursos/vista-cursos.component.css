@@ -51,6 +51,7 @@ mat-card {
   transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 8px;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 
 mat-card:hover {
@@ -133,8 +134,8 @@ mat-card-image {
 
 .button-container {
   display: flex;
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
+  justify-content: center;
+  align-items: center; 
   margin: 20px 0;
 }
 

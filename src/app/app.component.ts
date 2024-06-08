@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginService } from './_services/login.service';
 import { NgIf } from '@angular/common';
-import { MainPageComponent } from './main-page/main-page.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @Component({
   selector: 'app-root',

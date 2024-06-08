@@ -11,6 +11,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginService } from '../../_services/login.service';
 import { MatriculaService } from '../../_services/matricula.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-vista-contenidos',
@@ -23,7 +25,7 @@ import { MatriculaService } from '../../_services/matricula.service';
     MatCardModule,
     MatGridListModule,
     MatDividerModule,
-    MatIconModule,
+    MatIconModule
   ],
   templateUrl: './vista-contenidos.component.html',
   styleUrl: './vista-contenidos.component.css',
@@ -39,7 +41,9 @@ export class VistaContenidosComponent implements OnInit {
     private contenidoService: ContenidoService,
     private router: Router,
     private loginService: LoginService,
-    private matriculaService: MatriculaService
+    private matriculaService: MatriculaService,
+    private _sanitizer: DomSanitizer
+
   ) {}
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -125,4 +129,18 @@ export class VistaContenidosComponent implements OnInit {
         
       })
   }
+
+
+  getVideoIframe(url : any) {
+    var video, results;
+ 
+    if (url === null) {
+        return '';
+    }
+    results = url.match('[\\?&]v=([^&#]*)');
+    video   = (results === null) ? url : results[1];
+ 
+    return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+}
+
 }

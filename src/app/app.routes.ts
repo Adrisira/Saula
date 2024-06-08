@@ -8,7 +8,7 @@ import { VistaCursosComponent } from './components/vista-cursos/vista-cursos.com
 import { VistaCursoComponent } from './components/vista-curso/vista-curso.component';
 import { MatriculaComponent } from './components/matricula/matricula.component';
 import { VistaContenidoComponent } from './components/vista-contenido/vista-contenido.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
