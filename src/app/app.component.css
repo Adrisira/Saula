@@ -11,8 +11,11 @@ mat-toolbar {
     background-color: #88c9bf;
 }
 
-.saula {
+.saula:hover {
     font-weight: bold;
+    cursor: pointer;
+}
+span:hover{
     cursor: pointer;
 }
 

@@ -1,7 +1,7 @@
 <p>
   <mat-toolbar>
     <span class="suala" *ngIf="sesisionIniciada()" (click) = "navigatePaginaPrincipal()">Saula</span>
-    <span class="suala" *ngIf="!sesisionIniciada()">Saula</span>
+    <span class="suala" *ngIf="!sesisionIniciada()" (click) = "navigateMain()">Saula</span>
     <span class="barra"></span>
     <button class="login" mat-raised-button (click) = "navigateLogin()" *ngIf="!sesisionIniciada()">Inicia Sesión</button>
     <button class="registrate" mat-button (click) = "navigateRegister()" *ngIf="!sesisionIniciada()">Registrate!!</button>

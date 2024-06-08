@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginService } from './_services/login.service';
 import { NgIf } from '@angular/common';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @Component({
   selector: 'app-root',
@@ -15,18 +16,23 @@ import { NgIf } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     RouterLink,
-    NgIf
+    NgIf,
+    MainPageComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   constructor(
     public loginService: LoginService,
     private router: Router
   ) {}
   sesionIniciada: Boolean = false;
 
+
+  ngOnInit(): void {
+      this.navigateMain()
+  }
   sesisionIniciada(): Boolean {
     var estadoSesion: Boolean = this.sesionIniciada;
     if (
@@ -55,5 +61,8 @@ export class AppComponent {
 
   navigateRegister() : void {
     this.router.navigate(['../register'])
+  }
+  navigateMain() : void {
+    this.router.navigate(['../mainPage'])
   }
 }
