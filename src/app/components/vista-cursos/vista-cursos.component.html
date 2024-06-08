@@ -1,8 +1,7 @@
 <div class="button-container">
-  <button mat-button mat-flat-button color="primary" (click)="navigateCurso()">Crear curso</button>
-  <button mat-button mat-flat-button color="primary" (click)="navigateMatricula()">Unirme a un curso</button>
+  <button mat-button mat-flat-button class="btn-create" (click)="navigateCurso()">Crear curso</button>
+  <button mat-button mat-flat-button class="btn-join" (click)="navigateMatricula()">Unirme a un curso</button>
 </div>
-
 
 <div *ngIf="cursos.length > 0">
   <h2>Cursos Disponibles</h2>
@@ -21,12 +20,12 @@
             </p>
             <mat-divider></mat-divider>
           </mat-card-content>
-        <mat-card-actions *ngIf="curso.rol">
-          <button mat-button color="primary" (click)="navigateVistaCurso(curso.curso.id)">Editar</button>
+        <mat-card-actions *ngIf="curso.rol" class="actions">
+          <button mat-button class="btn-edit" (click)="navigateVistaCurso(curso.curso.id)">Editar</button>
           <div class="example-button-row">
             <div class="example-flex-container">
               <div class="example-button-container">
-                <button mat-mini-fab color="warn" aria-label="Example icon button with a menu icon"
+                <button mat-mini-fab class="btn-delete" aria-label="Example icon button with a menu icon"
                   (click)="deleteCurso(curso.curso.id)">
                   <mat-icon>delete</mat-icon>
                 </button>

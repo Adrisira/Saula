@@ -1,127 +1,143 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-    color: #333;
-  }
-  
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 5px;
+}
+
+.card-wrapper {
+  box-sizing: border-box;
+  flex: 1 1 calc(10% - 10px);
+  display: flex;
+  margin: 15 px;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
   .card-wrapper {
-    flex: 1 1 calc(5% - 1px);
-    margin: 5px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
+      flex: 1 1 calc(45% - 10px);
   }
-  
-  @media (max-width: 1024px) {
-    .card-wrapper {
-      flex: 1 1 calc(30% - 10px);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .card-wrapper {
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
       flex: 1 1 calc(100% - 40px);
-    }
   }
-  
-  mat-card {
-    max-width: 350px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  mat-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  mat-card-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  mat-card-subtitle {
-    color: #666;
-  }
-  
-  mat-card-content p {
-    font-size: 1em;
-    margin: 10px 0;
-    color: #555;
-  }
-  
-  mat-card-image {
-    background-size: cover;
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .no-content {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 1.2em;
-    color: #666;
-  }
-  
-  .example-card {
-    max-width: 400px;
-  }
-  
-  .mat-card-actions {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  button {
-    flex: 3 1
-  }
-  .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
-  }
-  .example-button-row {
-    display: table-cell;
-    max-width: 600px;
-  }
-  
-  .example-button-row .mat-mdc-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
+}
+
+mat-card {
+  background-color: #fffff9;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 15 px;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+mat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+mat-card-subtitle {
+  color: #666;
+}
+
+mat-card-content p {
+  font-size: 1em;
+  margin: 10px 0;
+  color: #555;
+}
+
+mat-card-image {
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.no-content {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.btn-create,
+.btn-join {
+  background-color: #88c9bf;
+  color: white;
+  margin: 10px;
+}
+
+.btn-edit {
+  background-color: #88c9bf;
+  color: white;
+  margin: 5px;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  margin: 5px;
+}
+
+.btn-create:hover,
+.btn-join:hover,
+.btn-edit:hover {
+  background-color: #70b0a7;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  margin: 20px 0;
+}
+
+.actions {
+  justify-content: end;
+}
