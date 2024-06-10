@@ -13,6 +13,7 @@ import { CursoService } from '../../_services/curso.service';
 import { firstValueFrom } from 'rxjs';
 import { waitForAsync } from '@angular/core/testing';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { ContenidoService } from '../../_services/contenido.service';
 
 @Component({
   selector: 'app-vista-cursos',
@@ -41,7 +42,8 @@ export class VistaCursosComponent implements OnInit {
     private router: Router,
     private cursoService: CursoService,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private contenidoService: ContenidoService
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +55,7 @@ export class VistaCursosComponent implements OnInit {
     
   }
 
-    cargarCursos(idUsuario : number) {
+    async cargarCursos(idUsuario : number) {
     this.matriculaService.getCursosUsuario(idUsuario).subscribe(
       (data: any) => {
         this.cursos = data;
@@ -85,8 +87,10 @@ export class VistaCursosComponent implements OnInit {
   async deleteCurso(idCurso: number) {
     await this.eliminarMatricula(idCurso)
     waitForAsync
+    await this.eliminarContenido(idCurso)
+    waitForAsync
     await this.eliminarCurso(idCurso)
-    this.navigateVistaCursos()
+    this.cargarCursos(Number(this.loginService.getToken()))
 
     
   }
@@ -103,14 +107,18 @@ export class VistaCursosComponent implements OnInit {
 
     await Promise.all(promesasEliminar);
   }
+
+  async eliminarContenido(idCurso : number) : Promise<void>{
+    const data = await firstValueFrom(this.contenidoService.getContenidoCurso(idCurso))
+
+    const promesasEliminar = data.map((contenido : any) => {
+      return firstValueFrom(this.contenidoService.deleteContenido(contenido.id))
+    })
+
+    await Promise.all(promesasEliminar)
+  }
   async eliminarCurso(idCurso : number): Promise<void>{
     const data = await firstValueFrom(this.cursoService.deleteCurso(idCurso));
   }
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(['./codigo-dialog.html']);
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
 }
