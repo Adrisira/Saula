@@ -5,6 +5,5 @@ export interface Contenido {
     video : string,
     foto : string,
     descripcion : string,
-    orden : number, 
     idCurso : number
 }

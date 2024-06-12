@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Lista de Usuarios</h2>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.email }}</td>
+          <td>
+            <button mat-mini-fab class="btn-delete" aria-label="Eliminar usuario" (click)="deleteUsuario(usuario.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -35,5 +35,13 @@ export class LoginService {
     return this.http.post(`http://localhost:8081/existEmail`, email)
   }
 
+  getAlluser(): Observable<any>{
+    return this.http.get("http://localhost:8081/usuarios")
+  }
+
+  deleteUsuario(id : any) : Observable<any>{
+    return this.http.delete(`http://localhost:8081/deleteUsuario/${id}`)
+  }
+
 
 }

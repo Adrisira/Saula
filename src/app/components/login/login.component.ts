@@ -35,7 +35,12 @@ export default class LoginComponent implements Usuario {
         this.id = data.id;
         this.nombre = data.nombre;
         this.loginService.setToken(data.id);
-        this.navigateVistaCurso();
+        if(this.email === "admin"){
+          this.navigateVistaUsuario()
+        } else {
+          this.navigateVistaCurso();
+        }
+        
       },
       (error) => {
         this.matSancBar.open(
@@ -53,5 +58,10 @@ export default class LoginComponent implements Usuario {
 
   navigateRegister(){
     this.router.navigate(['../register'])
+  }
+
+  navigateVistaUsuario(){
+    this.usuario.emit(this.id);
+    this.router.navigate(['../vistaUsuarios', this.id]);
   }
 }

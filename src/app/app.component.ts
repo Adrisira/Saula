@@ -7,6 +7,7 @@ import { LoginService } from './_services/login.service';
 import { NgIf } from '@angular/common';
 import { MainPageComponent } from './components/main-page/main-page.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -31,7 +32,10 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
+    console.log(this.sesionIniciada)
+    if(this.sesionIniciada === false){
       this.navigateMain()
+    }
   }
   sesisionIniciada(): Boolean {
     var estadoSesion: Boolean = this.sesionIniciada;

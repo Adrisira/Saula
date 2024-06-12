@@ -19,7 +19,6 @@ export class VistaContenidoComponent implements OnInit, Contenido{
     video : string = ""
     foto : string = ""
     descripcion : string = ""
-    orden : number = 0
     idCurso : number = 0
     @Output() cursoSeleccionado = new EventEmitter<number>();
     constructor(
@@ -46,7 +45,6 @@ export class VistaContenidoComponent implements OnInit, Contenido{
       this.video = data.video
       this.foto = data.foto
       this.descripcion = data.descripcion
-      this.orden = data.orden
       this.idCurso = data.curso.id
     })
   }

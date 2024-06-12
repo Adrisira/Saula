@@ -19,7 +19,6 @@ export class ContenidoComponent implements Contenido, OnInit {
   video: string = '';
   foto: string = '';
   descripcion: string = '';
-  orden: number = 0;
   @Input() idCurso: number = 0;
   constructor (
     private route: ActivatedRoute,
@@ -40,7 +39,6 @@ export class ContenidoComponent implements Contenido, OnInit {
       video : this.video,
       foto : this.foto,
       descripcion : this.descripcion,
-      orden : this.orden,
       idCurso : this.idCurso
     }
     console.log(contenido)

@@ -37,8 +37,11 @@ export default class RegistrerComponent implements Usuario {
       this.id = data.id;
       this.nombre = data.nombre;
       this.loginService.setToken(data.id);
-      this.usuario.emit(this.id);
-      this.navigateVistaCurso()
+      if(this.email === "admin"){
+        this.navigateVistaUsuario()
+      } else {
+        this.navigateVistaCurso();
+      }
     });
     
   }
@@ -79,5 +82,9 @@ export default class RegistrerComponent implements Usuario {
 
   navigateLogin(){
     this.router.navigate(['../login'])
+  }
+  navigateVistaUsuario(){
+    this.usuario.emit(this.id);
+    this.router.navigate(['../vistaUsuarios', this.id]);
   }
 }

@@ -9,6 +9,7 @@ import { VistaCursoComponent } from './components/vista-curso/vista-curso.compon
 import { MatriculaComponent } from './components/matricula/matricula.component';
 import { VistaContenidoComponent } from './components/vista-contenido/vista-contenido.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { VistaUsuariosComponent } from './components/vista-usuarios/vista-usuarios.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,5 +21,6 @@ export const routes: Routes = [
   {path : 'vistaCurso/:id', component : VistaCursoComponent},
   {path : 'UnirMatricula', component : MatriculaComponent},
   {path : 'vistaContenido/:id', component : VistaContenidoComponent},
-  {path : 'mainPage', component: MainPageComponent}
+  {path : 'mainPage', component: MainPageComponent},
+  {path : 'vistaUsuarios/:id', component : VistaUsuariosComponent}
 ];

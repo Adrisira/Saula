@@ -32,7 +32,7 @@ export class CursoComponent implements Curso {
   async todos() {
     await this.crearCurso();
     await this.crearMatricula();
-    this.navigateVistaCursos()
+    
   }
   crearCurso(): Promise<void> {
     const curso = {
@@ -58,7 +58,9 @@ export class CursoComponent implements Curso {
       idUsuario: Number(this.loginService.getToken()),
       idCurso: this.id,
     };
-    this.matriculaService.crearMatricula(contenido).subscribe((data) => {});
+    this.matriculaService.crearMatricula(contenido).subscribe((data) => {
+      this.navigateVistaCursos()
+    });
 
     
   }
