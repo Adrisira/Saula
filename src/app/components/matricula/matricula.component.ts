@@ -34,9 +34,11 @@ export class MatriculaComponent implements OnInit {
       idUsuario: this.idUsuario,
       idCurso : curso?.id 
     };
-    this.matriculaService.crearMatricula(contenido).subscribe((data) => {});
+    this.matriculaService.crearMatricula(contenido).subscribe((data) => {
+      this.router.navigate(['../vistaCursos', Number(this.loginService.getToken())]);
+    });
 
-    this.router.navigate(['../vistaCursos', Number(this.loginService.getToken())]);
+    
   }
 
   getCurso(): any{

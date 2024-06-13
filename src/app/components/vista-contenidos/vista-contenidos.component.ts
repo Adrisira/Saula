@@ -106,11 +106,11 @@ export class VistaContenidosComponent implements OnInit {
   }
 
   navigateVistaCursoss(){
-    this.router.navigate(['../vistaCursos'])
+    this.router.navigate(['../vistaCursos', Number(this.loginService.getToken())])
   }
   async todos(){
     await this.salirCurso()
-    this.navigateVistaCursoss()
+    
   }
 
   async salirCurso(){
@@ -122,7 +122,7 @@ export class VistaContenidosComponent implements OnInit {
         for (let matricula of matriculasCursos){
           if(matricula.usuario.id === idUsuario){
             this.matriculaService.deteleMatricula(matricula.id).subscribe((data2) => {
-  
+              this.navigateVistaCursoss()
             })
           }
         }

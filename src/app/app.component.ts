@@ -32,7 +32,6 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
-    console.log(this.sesionIniciada)
     if(this.sesionIniciada === false){
       this.navigateMain()
     }
